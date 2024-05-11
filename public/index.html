@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Notion 数据展示</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cal-heatmap/cal-heatmap.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cal-heatmap"></div>
+    <script src="https://cdn.jsdelivr.net/npm/d3@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cal-heatmap/cal-heatmap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const baseUrl = window.location.origin; // 获取当前页面的根URL
+        
+            const cal = new CalHeatMap();
+            cal.init({
+                itemSelector: "#cal-heatmap",
+                domain: "month",
+                subDomain: "day",
+                data: baseUrl + "/database", // 使用动态基础URL
+                start: new Date(new Date().getFullYear(), new Date().getMonth() - 3),
+                cellSize: 20,
+                range: 4,
+                tooltip: true,
+                nextSelector: "#next",
+                previousSelector: "#previous",
+                considerMissingDataAsZero: false,
+                legend: [1, 2, 3, 5],
+                legendColors: {
+                    min: "#ebedf0",
+                    base: "#ebedf0",
+                    colors: ["#ebedf0","#ebedf0","#a2e8ad", "#52c26d", "#409f57"],
+                    empty: "#ebedf0"
+                },
+                afterLoadData: function(data) {
+                    var result = {};
+                    data.forEach(function(item) {
+                        var date = new Date(item.date).getTime() / 1000;
+                        result[date] = item.progress;
+                    });
+                    return result;
+                }
+            });
+        
+            // 设置定时器每30秒刷新数据
+            setInterval(function() {
+                cal.update(baseUrl + "/database"); // 使用动态基础URL
+            }, 30000); // 每30秒刷新一次
+        });
+    </script>
+            
+</body>
+</html>
