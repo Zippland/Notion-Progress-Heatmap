@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Notion 数据展示</title>
+    <title>Notion Task Heatmap</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cal-heatmap/cal-heatmap.css" />
     <style>
         body {
@@ -40,6 +40,11 @@
                     empty: "#ebedf0"
                 },
                 afterLoadData: function(data) {
+                    if (!data) {
+                        console.error('No data received');
+                        return {};
+                    }
+
                     var result = {};
                     data.forEach(function(item) {
                         var date = new Date(item.date).getTime() / 1000;
