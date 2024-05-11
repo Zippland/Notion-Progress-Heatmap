@@ -24,7 +24,7 @@
                 itemSelector: "#cal-heatmap",
                 domain: "month",
                 subDomain: "day",
-                data: baseUrl + "/database", // 使用动态基础URL
+                data: baseUrl + "/api/database", // 更新为指向无服务器函数的URL
                 start: new Date(new Date().getFullYear(), new Date().getMonth() - 5),
                 cellSize: 20,
                 range: 6,
@@ -51,7 +51,7 @@
         
             // 设置定时器每30秒刷新数据
             setInterval(function() {
-                cal.update(baseUrl + "/database"); // 使用动态基础URL
+                cal.update(baseUrl + "/api/database"); // 更新为指向无服务器函数的URL
             }, 30000); // 每30秒刷新一次
         });
     </script>
