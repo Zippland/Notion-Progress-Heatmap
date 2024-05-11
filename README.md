@@ -1,8 +1,8 @@
 # Notion-Pregress-Heatmap
 
-[中文 Readme](README)
+[中文 Readme](README.md)
 
-[English Readme](README_EN)
+[English Readme](README_EN.md)
 
 ## 项目简介
 
