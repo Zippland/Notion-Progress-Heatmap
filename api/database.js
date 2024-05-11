@@ -30,21 +30,27 @@ export default async (req, res) => {
 };
 
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+const timeZoneOffset = process.env.TIME_ZONE_OFFSET ? parseInt(process.env.TIME_ZONE_OFFSET) * 60 * 60000 : 0; // 默认偏移为0
+
 const processData = (data) => {
     const progressMap = new Map();
 
     data.forEach(item => {
         if (item.properties.Date && item.properties.Count) {
             if(item.properties.Count.formula.number > 0){
-                // 使用本地日期而非 UTC 日期
-                const date = new Date(item.properties.Date.created_time);
-                const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                const utcDate = new Date(item.properties.Date.created_time);
+                const localDate = new Date(utcDate.getTime() + timeZoneOffset); // 使用环境变量调整时区
+                const formattedDate = localDate.toISOString().split('T')[0];
                 const count = item.properties.Count.formula.number || 0;
-                progressMap.set(localDate, count);
+                progressMap.set(formattedDate, count);
             }
         }
     });
 
     return Array.from(progressMap).map(([date, progress]) => ({ date, progress }));
 };
+
 
