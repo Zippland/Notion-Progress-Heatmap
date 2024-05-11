@@ -36,12 +36,15 @@ const processData = (data) => {
     data.forEach(item => {
         if (item.properties.Date && item.properties.Count) {
             if(item.properties.Count.formula.number > 0){
-                const date = new Date(item.properties.Date.created_time).toISOString().split('T')[0];
+                // 使用本地日期而非 UTC 日期
+                const date = new Date(item.properties.Date.created_time);
+                const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
                 const count = item.properties.Count.formula.number || 0;
-                progressMap.set(date, count);
+                progressMap.set(localDate, count);
             }
         }
     });
 
     return Array.from(progressMap).map(([date, progress]) => ({ date, progress }));
 };
+
