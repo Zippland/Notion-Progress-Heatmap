@@ -1,4 +1,4 @@
-# Notion 进度热图项目
+# Notion-Pregress-Heatmap
 
 [中文 Readme](README)
 [English Readme](README_EN)
