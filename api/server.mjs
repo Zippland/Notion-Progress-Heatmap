@@ -53,12 +53,12 @@ app.get('/database', async (req, res) => {
     const data = await response.json();
 
     // 打印 Notion API 原始响应数据查看
-    //console.log("Raw Notion API Data:", JSON.stringify(data, null, 2));
+    console.log("Raw Notion API Data:", JSON.stringify(data, null, 2));
 
     const processedData = processData(data.results);
     
     // 打印处理后的数据查看
-    //console.log("Processed Data:", JSON.stringify(processedData, null, 2));
+    console.log("Processed Data:", JSON.stringify(processedData, null, 2));
 
     res.json(processedData);
 });
