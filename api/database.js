@@ -5,7 +5,7 @@ dotenv.config();
 export default async (req, res) => {
     const token = process.env.ENV_NOTION_TOKEN;
     const databaseId = process.env.ENV_DATABASE_ID;
-    const timezoneOffset = process.env.TIMEZONE_OFFSET ? parseInt(process.env.TIMEZONE_OFFSET) * 60 * 60 * 1000 : 0;
+    const timezoneOffset = process.env.TIME_ZONE_OFFSET ? parseInt(process.env.TIMEZONE_OFFSET) * 60 * 60 * 1000 : 0;
 
     try {
         const response = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
