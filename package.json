@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node api/server.mjs",
-    "dev": "nodemon api/server.mjs"
+    "start": "vercel dev",
+    "build": "vercel build",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "cors": "^2.8.5",
