@@ -1,10 +1,11 @@
-// api/database.js
 import fetch from 'node-fetch';
-import { processData } from './utils.js';  // 假设您将 processData 函数移至 utils.js
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default async (req, res) => {
     const token = process.env.ENV_NOTION_TOKEN;
     const databaseId = process.env.ENV_DATABASE_ID;
+
     const response = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
         method: 'POST',
         headers: {
@@ -14,6 +15,24 @@ export default async (req, res) => {
         },
     });
     const data = await response.json();
+
     const processedData = processData(data.results);
-    res.status(200).json(processedData);
+    
+    res.json(processedData);
+};
+
+const processData = (data) => {
+    const progressMap = new Map();
+
+    data.forEach(item => {
+        if (item.properties.Date && item.properties.Count) {
+            if(item.properties.Count.formula.number > 0){
+                const date = new Date(item.properties.Date.created_time).toISOString().split('T')[0];
+                const count = item.properties.Count.formula.number || 0;
+                progressMap.set(date, count);
+            }
+        }
+    });
+
+    return Array.from(progressMap).map(([date, progress]) => ({ date, progress }));
 };
