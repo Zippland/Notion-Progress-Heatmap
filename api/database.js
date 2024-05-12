@@ -33,13 +33,14 @@ const processData = (data) => {
     const progressMap = new Map();
 
     data.forEach(item => {
-        if (item.properties.Date && item.properties.Count) {
-            if (item.properties.Count.formula.number > 0) {
+        if (item.properties.Date && item.properties.Progress) {
+            const progressDecimal = item.properties.Progress.number;
+            if (progressDecimal != null) {
                 const dateObject = new Date(item.properties.Date.created_time);
                 dateObject.setDate(dateObject.getDate() + 1); // Add one day to the date
                 const date = dateObject.toISOString().split('T')[0]; // Format back to YYYY-MM-DD
-                const count = item.properties.Count.formula.number || 0;
-                progressMap.set(date, count);
+                const progressPercentage = Math.round(progressDecimal * 100); // Convert from 0-1 to 0-100 percentage
+                progressMap.set(date, progressPercentage);
             }
         }
     });
