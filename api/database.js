@@ -34,7 +34,7 @@ const processData = (data) => {
 
     data.forEach(item => {
         if (item.properties.Date && item.properties.Progress) {
-            if (item.properties.Progress.formula.number !== null) {
+            if (item.properties.Progress.formula.number !== null && item.properties.Progress.formula.number > 0) {
                 const dateObject = new Date(item.properties.Date.created_time);
                 dateObject.setDate(dateObject.getDate() + 1); // Add one day to the date
                 const date = dateObject.toISOString().split('T')[0]; // Format back to YYYY-MM-DD
