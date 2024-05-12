@@ -11,7 +11,8 @@
 
 Notion 进度热图项目是一个基于 Notion API 和 Vercel 平台的云端部署应用。该项目的主要功能是从 Notion 数据库中获取数据并在网页上以热图的形式展示每天的进度记录。项目使用无服务器架构，便于部署和维护。
 
-![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/73af35ed-9224-4e7b-b79f-77a4aacdaa8a)
+![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/2c4d400a-57f1-41f1-a34c-d6f53ee2ad82)
+
 
 
 
