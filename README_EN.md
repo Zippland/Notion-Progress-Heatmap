@@ -11,7 +11,8 @@
 
 The Notion Progress Heatmap is a cloud-deployed application based on the Notion API and Vercel platform. The primary function of this project is to fetch data from a Notion database and display it on a webpage in the form of a heatmap. The project uses a serverless architecture, making it easy to deploy and maintain.
 
-![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/73af35ed-9224-4e7b-b79f-77a4aacdaa8a)
+![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/bc96e98b-bff3-4379-ad61-f491fa35ce14)
+
 
 ## Technology Stack
 
