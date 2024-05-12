@@ -4,6 +4,8 @@
 
 [English Readme](README_EN.md)
 
+[![Vercel一键部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FZippland%2FNotion-Progress-Heatmap&env=ENV_DATABASE_ID&env=ENV_NOTION_TOKEN&env=TIME_ZONE_OFFSET&project-name=notion-progress-heatmap&repository-name=notion-progress-heatmap)
+
 ## 项目简介
 
 Notion 进度热图项目是一个基于 Notion API 和 Vercel 平台的云端部署应用。该项目的主要功能是从 Notion 数据库中获取数据并在网页上以热图的形式展示每天的进度记录。项目使用无服务器架构，便于部署和维护。
