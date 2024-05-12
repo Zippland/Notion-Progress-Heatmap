@@ -29,14 +29,15 @@ export default async (req, res) => {
     }
 };
 
-
 const processData = (data) => {
     const progressMap = new Map();
 
     data.forEach(item => {
         if (item.properties.Date && item.properties.Count) {
-            if(item.properties.Count.formula.number > 0){
-                const date = new Date(item.properties.Date.created_time).toISOString().split('T')[0];
+            if (item.properties.Count.formula.number > 0) {
+                const dateObject = new Date(item.properties.Date.created_time);
+                dateObject.setDate(dateObject.getDate() + 1); // Add one day to the date
+                const date = dateObject.toISOString().split('T')[0]; // Format back to YYYY-MM-DD
                 const count = item.properties.Count.formula.number || 0;
                 progressMap.set(date, count);
             }
