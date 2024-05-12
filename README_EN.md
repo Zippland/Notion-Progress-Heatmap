@@ -5,7 +5,7 @@
 [English Readme](README_EN)
 
 ## Quick Deploy
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FZippland%2FNotion-Progress-Heatmap&env=ENV_DATABASE_ID&env=ENV_NOTION_TOKEN&env=TIME_ZONE_OFFSET&project-name=notion-progress-heatmap&repository-name=notion-progress-heatmap)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FZippland%2FNotion-Progress-Heatmap&env=ENV_DATABASE_ID&env=ENV_NOTION_TOKEN&project-name=notion-progress-heatmap&repository-name=notion-progress-heatmap)
 
 ## Project Overview
 
@@ -54,7 +54,6 @@ The Notion Progress Heatmap is a cloud-deployed application based on the Notion 
 3. **Configure environment variables**: In the settings of your Vercel project, find the “Environment Variables” section and add the following two variables:
    - `ENV_NOTION_TOKEN`: Your Notion internal integration token.
    - `ENV_DATABASE_ID`: Your Notion database ID.
-   - `TIME_ZONE_OFFSET`：Your time zone.
 4. **Deploy the project**: After setting up the environment variables, return to the project dashboard and click the "Deploy" button. Vercel will automatically deploy your application.
 
 ### Accessing and Using
