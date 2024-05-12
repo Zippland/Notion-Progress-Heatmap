@@ -5,7 +5,7 @@
 [English Readme](README_EN.md)
 
 ## 一键部署
-[![Vercel一键部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FZippland%2FNotion-Progress-Heatmap&env=ENV_DATABASE_ID&env=ENV_NOTION_TOKEN&env=TIME_ZONE_OFFSET&project-name=notion-progress-heatmap&repository-name=notion-progress-heatmap)
+[![Vercel一键部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FZippland%2FNotion-Progress-Heatmap&env=ENV_DATABASE_ID&env=ENV_NOTION_TOKEN&project-name=notion-progress-heatmap&repository-name=notion-progress-heatmap)
 
 ## 项目简介
 
@@ -56,7 +56,6 @@ Notion 进度热图项目是一个基于 Notion API 和 Vercel 平台的云端�
 3. **配置环境变量**：在 Vercel 项目的设置中找到“Environment Variables”部分，添加以下两个变量：
    - `ENV_NOTION_TOKEN`：你的 Notion 内部集成令牌。
    - `ENV_DATABASE_ID`：你的 Notion 数据库ID。
-   - `TIME_ZONE_OFFSET`：你的时区
 4. **部署项目**：完成环境变量配置后，回到项目仪表板，点击“Deploy”按钮，Vercel 会自动部署你的应用。
 
 ### 三、访问和使用
