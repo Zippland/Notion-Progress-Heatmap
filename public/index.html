@@ -32,7 +32,7 @@
                 nextSelector: "#next",
                 previousSelector: "#previous",
                 considerMissingDataAsZero: false,
-                legend: [25, 50, 65, 80], // Redefining the legend thresholds
+                legend: [20, 40, 60, 80], // Redefining the legend thresholds
                 legendColors: {
                     min: "#ebedf0",
                     base: "#ebedf0",
@@ -40,7 +40,7 @@
                     empty: "#ebedf0"
                 },
                 subDomainTitleFormat: {
-                    empty: "No data on {date}",
+                    empty: "{date}", // Display only the date for empty data cells
                     filled: "{count}% on {date}" // Custom format to show percentage
                 },
                 afterLoadData: function(data) {
