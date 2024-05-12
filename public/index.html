@@ -28,22 +28,20 @@
                 start: new Date(new Date().getFullYear(), new Date().getMonth() - 5),
                 cellSize: 10,
                 range: 6,
-                legend: [25, 50, 65, 80],
+                tooltip: true,
+                nextSelector: "#next",
+                previousSelector: "#previous",
+                considerMissingDataAsZero: false,
+                legend: [25, 50, 65, 80], // Redefining the legend thresholds
                 legendColors: {
                     min: "#ebedf0",
                     base: "#ebedf0",
-                    colors: ["#ebedf0","#c6e48b", "#7bc96f", "#239a3b", "#196127"],
+                    colors: ["#ebedf0","#c6e48b", "#7bc96f", "#239a3b", "#196127"], // Adjusted color steps for clarity
                     empty: "#ebedf0"
                 },
-                tooltip: function(date, value) {
-                    // Format the date using JavaScript's toLocaleDateString method
-                    const formattedDate = new Date(date).toLocaleDateString("en-US", {
-                        weekday: 'long', // long, short, narrow
-                        year: 'numeric', // numeric, 2-digit
-                        month: 'long', // numeric, 2-digit, long, short, narrow
-                        day: 'numeric', // numeric, 2-digit
-                    });
-                    return `<strong>${value}%</strong> on <em>${formattedDate}</em>`;
+                subDomainTitleFormat: {
+                    empty: "No data on {date}",
+                    filled: "{count}% on {date}" // Custom format to show percentage
                 },
                 afterLoadData: function(data) {
                     if (!data) {
