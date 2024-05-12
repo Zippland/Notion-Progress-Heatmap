@@ -63,6 +63,7 @@ Notion 进度热图项目是一个基于 Notion API 和 Vercel 平台的云端�
 部署完成后，Vercel 会提供一个 URL 供你访问你的 Notion 进度热图。打开这个 URL，你就可以看到从 Notion 数据库获取的数据以热图形式展示在网页上。
 
 在notion中通过`\embed`命令插入网页视图。
+
 ![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/9298c5aa-bd5e-49d2-979f-546f3bf469f0)
 
 
