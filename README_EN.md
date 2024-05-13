@@ -9,77 +9,79 @@
 
 ## Project Overview
 
-The Notion Progress Heatmap is a cloud-deployed application based on the Notion API and Vercel platform. The primary function of this project is to fetch data from a Notion database and display it on a webpage in the form of a heatmap. The project uses a serverless architecture, making it easy to deploy and maintain.
+Notion-Progress-Heatmap is used for tracking the collective completion rates of multiple tasks. It is a cloud-deployed application based on the Notion API and the Vercel platform. The main functionality of this project is to fetch data from the Notion database and display daily progress records on a webpage in the form of a heatmap.
 
-![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/bc96e98b-bff3-4379-ad61-f491fa35ce14)
+For tracking the completion of individual tasks, use: [Notion-Checkbox-Heatmap](https://github.com/Zippland/Notion-Checkbox-Heatmap)
 
-Automatically switches to night mode：
-![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/c89ac7d2-11de-451a-affc-002eff60d0c3)
+![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/63b0375e-7526-4863-8a87-cf56dcf75047)
 
+**Automatic switch to night mode**:
+![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/fef9ffdc-9509-4980-8f03-05f1210a35d2)
 
 ## Technology Stack
 
 - **HTML/CSS**: For frontend display.
 - **JavaScript**: For frontend logic.
-- **Node.js**: For backend API services.
-- **Vercel**: For cloud deployment and hosting.
-- **Notion API**: As a data source.
+- **Node.js**: Backend API services.
+- **Vercel**: Cloud deployment and hosting services.
+- **Notion API**: Source of data.
 
 ## Project Structure
 
 ```
 /
 ├── api
-│   └── database.js       # Serverless function, handling interaction with Notion API
+│   └── database.js       # Serverless function, handling interaction with the Notion API
 ├── public
 │   └── index.html        # Main page
 ├── package.json          # Project dependencies and scripts
 └── README.md             # Project documentation
 ```
 
-## Features
+## Feature Description
 
-- **Data Display**: Fetch data via Notion API and display it on a webpage in heatmap format.
-- **Automatic Refresh**: The page regularly updates data from the Notion database to ensure data is current.
+- **Data Display**: Fetch data through the Notion API and display it on the webpage in heatmap form.
+- **Automatic Refresh**: The page regularly updates data from the Notion database to ensure real-time data accuracy.
 
 ## How to Use
 
 ### Step 1: Preparation
 
-1. **Register a Notion Account**: If you do not already have a Notion account, please register one at [Notion's official website](https://www.notion.so/).
-2. **Create a Notion Database**: Create a task table with at least the properties `Date` and `Progress`, where `Date` is used to record each day's date, and `Progress` represents the completion rate of tasks for the day (value range 0-1).
-3. **Obtain a Notion API Key**: To allow the application access to your Notion database, create an integration and obtain the corresponding key. Go to the "Integration" section in Notion settings, create a new integration, and note down the generated "Internal Integration Token".
-4. **Obtain the Database ID**: In the URL of your Notion database page, copy the part following "`https://www.notion.so/`" (up to and excluding the `?`), this segment of the URL is your database ID.
+1. **Register for a Notion account**: If you do not have a Notion account, register one on the [Notion website](https://www.notion.so/).
+2. **Create a Notion database**: Create a task table that includes at least the `Date` and `Progress` attributes. The `Date` attribute is used to record the date daily, and the `Progress` represents the daily task completion rate (value range from 0-1).
+3. **Obtain Notion API key**: To allow the application to access the Notion database, create an integration and obtain the corresponding key. Go to the "Integration" section in Notion settings, create a new integration, and note the generated "Internal Integration Token".
+4. **Get database ID**: In the URL of your Notion database page, copy the part after "`https://www.notion.so/`" and before the `?` (excluding the `?`). This part of the URL is your database ID.
 
 ### Step 2: Deploy to Vercel
 
-1. **Register a Vercel Account**: Visit [Vercel's official website](https://vercel.com/) and register an account.
-2. **Create a Vercel Project**: In the Vercel dashboard, select "New Project", then create a project by importing a repository from GitHub.
-3. **Configure Environment Variables**: In your Vercel project's settings, find the "Environment Variables" section and add the following two variables:
-   - `ENV_NOTION_TOKEN`: Your Notion Internal Integration Token.
+1. **Register for a Vercel account**: Visit the [Vercel website](https://vercel.com/) and register an account.
+2. **Create a new Vercel project**: In the Vercel dashboard, select "New Project" and create a project by importing the repository from GitHub.
+3. **Configure environment variables**: In the settings of your Vercel project, find the "Environment Variables" section and add the following two variables:
+   - `ENV_NOTION_TOKEN`: Your Notion internal integration token.
    - `ENV_DATABASE_ID`: Your Notion database ID.
-4. **Deploy the Project**: After configuring the environment variables, go back to the project dashboard and click the "Deploy" button. Vercel will automatically deploy your application.
+4. **Deploy the project**: After setting up the environment variables, return to the project dashboard and click the "Deploy" button. Vercel will automatically deploy your application.
 
 ### Step 3: Access and Use
 
-Once deployed, Vercel will provide a URL for accessing your Notion Progress Heatmap. Open this URL to see the data fetched from the Notion database displayed as a heatmap on the webpage.
+Once deployed, Vercel will provide a URL for you to access your Notion progress heatmap. Open this URL, and you will see the data fetched from the Notion database displayed on the webpage in heatmap form.
 
-In Notion, insert a webpage view using the `\embed` command.
+In Notion, insert a web view of the page using the `\embed` command.
 
 ![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/9298c5aa-bd5e-49d2-979f-546f3bf469f0)
 
+
 ## Frequently Asked Questions
 
-**Q1: How can I ensure the security of my Notion data?**
+**Q
 
-A1: Ensure that your Notion API key and database ID are used only when necessary and kept secure. Do not share them with untrusted parties.
+1: How do I ensure the security of my Notion data?**
 
-**Q2: How can I update the data displayed?**
+A1: Ensure that your Notion API key and database ID are used only when necessary and are well protected. Do not share them with untrusted parties.
 
-A2: The webpage automatically refreshes the data every 30 seconds. You can also manually update the data displayed by simply refreshing the webpage.
+**Q2: How do I update the data display?**
 
-**Q3: What if the data does not
+A2: The webpage automatically refreshes the data every 30 seconds. You can also manually update the displayed data by simply refreshing the webpage.
 
- update?**
+**Q3: What if the data does not update?**
 
-A3: Ensure your Notion database has new data entries, and check the Vercel project logs to identify any backend errors.
+A3: Confirm that your Notion database has new data entries, and check the logs of the Vercel project to ensure there are no backend errors.
