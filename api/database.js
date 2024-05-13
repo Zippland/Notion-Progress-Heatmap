@@ -5,6 +5,10 @@ dotenv.config();
 export default async (req, res) => {
     const token = process.env.ENV_NOTION_TOKEN;
     const databaseId = process.env.ENV_DATABASE_ID;
+    res.json({
+        range: process.env.ENV_RANGE || 6, // 默认值为6个月
+        cellSize: process.env.ENV_CELL_SIZE || 10 // 默认格子大小为10
+    });
 
     try {
         const response = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
