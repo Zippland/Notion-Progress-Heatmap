@@ -13,6 +13,9 @@ The Notion Progress Heatmap is a cloud-deployed application based on the Notion 
 
 ![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/bc96e98b-bff3-4379-ad61-f491fa35ce14)
 
+Automatically switches to night mode：
+![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/c89ac7d2-11de-451a-affc-002eff60d0c3)
+
 
 ## Technology Stack
 
