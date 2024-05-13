@@ -18,7 +18,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
             const baseUrl = window.location.origin; // 获取当前页面的根URL
-            let config = await fetch(`${baseUrl}/api/config`).then(res => res.json());
+            let database = await fetch(`${baseUrl}/api/database`).then(res => res.json());
     
             const cal = new CalHeatMap();
             cal.init({
@@ -26,9 +26,9 @@
                 domain: "month",
                 subDomain: "day",
                 data: baseUrl + "/api/database", // 更新为指向无服务器函数的URL
-                start: new Date(new Date().getFullYear(), new Date().getMonth() - config.range),
-                cellSize: config.cellSize,
-                range: config.range,
+                start: new Date(new Date().getFullYear(), new Date().getMonth() - database.range),
+                cellSize: database.cellSize,
+                range: database.range,
                 tooltip: true,
                 nextSelector: "#next",
                 previousSelector: "#previous",
