@@ -16,7 +16,8 @@ Notion-Pregress-Heatmap用于多个任务共同完成率的跟踪。是一个基
 ![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/63b0375e-7526-4863-8a87-cf56dcf75047)
 
 **自动切换到夜间模式**：
-![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/c89ac7d2-11de-451a-affc-002eff60d0c3)
+![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/fef9ffdc-9509-4980-8f03-05f1210a35d2)
+
 
 
 
