@@ -11,7 +11,7 @@
 
 Notion-Progress-Heatmap is used for tracking the collective completion rates of multiple tasks. It is a cloud-deployed application based on the Notion API and the Vercel platform. The main functionality of this project is to fetch data from the Notion database and display daily progress records on a webpage in the form of a heatmap.
 
-For tracking the completion of individual tasks, use: [Checkbox Branch](https://github.com/Zippland/Notion-Progress-Heatmap/tree/Checkbox)
+For tracking the completion of individual tasks, use: [Notion-Checkbox-Heatmap](https://github.com/Zippland/Notion-Checkbox-Heatmap)
 
 ![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/63b0375e-7526-4863-8a87-cf56dcf75047)
 
