@@ -11,7 +11,7 @@
 
 Notion-Pregress-Heatmap用于多个任务共同完成率的跟踪。是一个基于 Notion API 和 Vercel 平台的云端部署应用。该项目的主要功能是从 Notion 数据库中获取数据，并在网页上以热图的形式展示每天的进度记录。
 
-对于单个任务完成情况的跟踪，可使用：[Checkbox 分支](https://github.com/Zippland/Notion-Progress-Heatmap/tree/Checkbox)
+对于单个任务完成情况的跟踪，可使用：[Notion-Checkbox-Heatmap](https://github.com/Zippland/Notion-Checkbox-Heatmap)
 
 ![image](https://github.com/Zippland/Notion-Progress-Heatmap/assets/126135306/63b0375e-7526-4863-8a87-cf56dcf75047)
 
