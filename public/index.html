@@ -16,39 +16,40 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/cal-heatmap/cal-heatmap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
             const baseUrl = window.location.origin; // 获取当前页面的根URL
-        
+            let config = await fetch(`${baseUrl}/api/config`).then(res => res.json());
+    
             const cal = new CalHeatMap();
             cal.init({
                 itemSelector: "#cal-heatmap",
                 domain: "month",
                 subDomain: "day",
                 data: baseUrl + "/api/database", // 更新为指向无服务器函数的URL
-                start: new Date(new Date().getFullYear(), new Date().getMonth() - 5),
-                cellSize: 10,
-                range: 6,
+                start: new Date(new Date().getFullYear(), new Date().getMonth() - config.range),
+                cellSize: config.cellSize,
+                range: config.range,
                 tooltip: true,
                 nextSelector: "#next",
                 previousSelector: "#previous",
                 considerMissingDataAsZero: false,
-                legend: [25, 50, 65, 80], // Redefining the legend thresholds
+                legend: [25, 50, 65, 80],
                 legendColors: {
                     min: "#ebedf0",
                     base: "#ebedf0",
-                    colors: ["#ebedf0","#c6e48b", "#7bc96f", "#239a3b", "#196127"], // Adjusted color steps for clarity
+                    colors: ["#ebedf0","#c6e48b", "#7bc96f", "#239a3b", "#196127"],
                     empty: "#ebedf0"
                 },
                 subDomainTitleFormat: {
-                    empty: "{date}", // Display only the date for empty data cells
-                    filled: "{count}% on {date}" // Custom format to show percentage
+                    empty: "{date}",
+                    filled: "{count}% on {date}"
                 },
                 afterLoadData: function(data) {
                     if (!data) {
                         console.error('No data received');
                         return {};
                     }
-
+    
                     var result = {};
                     data.forEach(function(item) {
                         var date = new Date(item.date).getTime() / 1000;
@@ -57,13 +58,14 @@
                     return result;
                 }
             });
-        
+    
             // 设置定时器每30秒刷新数据
             setInterval(function() {
                 cal.update(baseUrl + "/api/database"); // 更新为指向无服务器函数的URL
             }, 30000); // 每30秒刷新一次
         });
     </script>
+
             
 </body>
 </html>
